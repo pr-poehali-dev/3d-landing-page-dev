@@ -14,13 +14,32 @@ const About3D = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          style={{ transformStyle: "preserve-3d" }}
+        >
           {/* Service Card 1 */}
-          <div className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div
+            className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20"
+            style={{
+              transform:
+                "perspective(1000px) rotateX(10deg) rotateY(-15deg) translate3d(0, 0, 30px)",
+              transformStyle: "preserve-3d",
+            }}
+          >
             <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mb-6 flex items-center justify-center text-2xl animate-spin-slow">
-                🎨
+              <div
+                className="flex items-center justify-center mb-6"
+                style={{ perspective: "600px" }}
+              >
+                <div className="cube-3d small shape-purple">
+                  <div className="face front"></div>
+                  <div className="face back"></div>
+                  <div className="face right"></div>
+                  <div className="face left"></div>
+                  <div className="face top"></div>
+                  <div className="face bottom"></div>
+                </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 3D Моделирование
@@ -33,11 +52,20 @@ const About3D = () => {
           </div>
 
           {/* Service Card 2 */}
-          <div className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div
+            className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20"
+            style={{
+              transform:
+                "perspective(1000px) rotateX(10deg) translate3d(0, 0, 50px)",
+              transformStyle: "preserve-3d",
+            }}
+          >
             <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl mb-6 flex items-center justify-center text-2xl animate-bounce-slow">
-                ✨
+              <div
+                className="flex items-center justify-center mb-6"
+                style={{ perspective: "600px" }}
+              >
+                <div className="sphere-3d shape-blue"></div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">
                 Визуализация
@@ -49,10 +77,22 @@ const About3D = () => {
           </div>
 
           {/* Service Card 3 */}
-          <div className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div
+            className="group relative bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-purple-500/20"
+            style={{
+              transform:
+                "perspective(1000px) rotateX(10deg) rotateY(15deg) translate3d(0, 0, 30px)",
+              transformStyle: "preserve-3d",
+            }}
+          >
             <div className="relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl mb-6 flex items-center justify-center text-2xl animate-pulse">
+              <div
+                className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl mb-6 flex items-center justify-center text-2xl"
+                style={{
+                  transform:
+                    "rotateX(45deg) rotateY(-30deg) translate3d(0, 0, 30px)",
+                }}
+              >
                 🚀
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Интерактив</h3>

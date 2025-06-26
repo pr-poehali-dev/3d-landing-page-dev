@@ -59,28 +59,42 @@ const Portfolio3D = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          style={{ transformStyle: "preserve-3d" }}
+        >
           {portfolioItems.map((item, index) => (
             <div
               key={index}
-              className="group relative bg-slate-800 rounded-2xl overflow-hidden border border-purple-500/20 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+              className="group relative bg-slate-800 rounded-2xl overflow-hidden border border-purple-500/20 shadow-2xl shadow-purple-500/25"
+              style={{
+                transform: `perspective(1000px) rotateX(${10 + (index % 3) * 5}deg) rotateY(${-10 + (index % 2) * 20}deg) translate3d(0, 0, ${20 + (index % 3) * 15}px)`,
+                transformStyle: "preserve-3d",
+              }}
             >
               <div className="relative overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-64 object-cover"
+                  style={{ transform: "translate3d(0, 0, 10px)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
 
                 {/* Category badge */}
-                <div className="absolute top-4 left-4 px-3 py-1 bg-purple-600/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full">
+                <div
+                  className="absolute top-4 left-4 px-3 py-1 bg-purple-600/80 backdrop-blur-sm text-white text-sm font-semibold rounded-full"
+                  style={{ transform: "translate3d(0, 0, 20px)" }}
+                >
                   {item.category}
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
+              <div
+                className="p-6"
+                style={{ transform: "translate3d(0, 0, 15px)" }}
+              >
+                <h3 className="text-xl font-bold text-white mb-2">
                   {item.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
@@ -88,9 +102,14 @@ const Portfolio3D = () => {
                 </p>
               </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <button className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full hover:bg-white/30 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+              {/* Static 3D overlay button */}
+              <div
+                className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
+                style={{
+                  transform: "translateX(-50%) translate3d(0, 0, 25px)",
+                }}
+              >
+                <button className="px-6 py-3 bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full">
                   Подробнее
                 </button>
               </div>
@@ -99,7 +118,13 @@ const Portfolio3D = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105 hover:shadow-xl">
+          <button
+            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-xl"
+            style={{
+              transform:
+                "perspective(1000px) rotateX(10deg) translate3d(0, 0, 30px)",
+            }}
+          >
             Смотреть все работы
           </button>
         </div>
